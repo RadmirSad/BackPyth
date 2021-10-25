@@ -35,8 +35,12 @@ class CalcList(list):
         return operation(fir_sum, sec_sum)
 
     def __neg__(self):
+        if not isinstance(self, list):
+            raise TypeError('Incorrect type of argument')
         dop = self[:]
         for i in range(len(self)):
+            if not isinstance(self[i], (int, float)):
+                raise TypeError('There must be integer or float type in list')
             dop[i] = -self[i]
         return CalcList(dop)
 
@@ -50,10 +54,8 @@ class CalcList(list):
         return self.__add__(other)
 
     def __sub__(self, other):
-        fir, sec, max_ind = self.__dop_arith(other)
-        for ind in range(max_ind):
-            fir[ind] = fir[ind] - sec[ind]
-        return CalcList(fir)
+        dop = CalcList.__neg__(other)
+        return self.__add__(dop)
 
     def __rsub__(self, other):
         dop = -self

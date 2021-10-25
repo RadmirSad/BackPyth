@@ -65,7 +65,7 @@ class TestList(unittest.TestCase):
     def test_sub_invalid(self):
         with self.assertRaises(TypeError):
             self.my_list - self.dop_err_list
-        with self.assertRaises(ArithmeticError):
+        with self.assertRaises(TypeError):
             self.my_list - self.dop_err_list2
         with self.assertRaises(TypeError):
             self.dop_err_list - self.my_list
