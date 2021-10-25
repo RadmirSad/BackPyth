@@ -75,9 +75,9 @@ class Game(object):
         return False, draw
 
     def start(self):
-        end = False
+        end = (False, False)
         player_id = 0
-        while not end:
+        while not end[0]:
             self.tiles.print()
             print(f'{self.players[player_id]}, your turn')
             self.move(Type(player_id + 1))
