@@ -4,10 +4,10 @@ from django.db import models
 
 
 class Teacher(models.Model):
-    FullName = models.CharField(verbose_name='ФИО преподавателя', max_length=50, null=False)
+    full_name = models.CharField(verbose_name='ФИО преподавателя', max_length=50, null=False)
 
 
 class Lesson(models.Model):
-    NumberOfLesson = models.IntegerField(verbose_name='Номер вебинара', null=False)
-    NameOfTeacher = models.ManyToManyField(Teacher)
-    Time = models.DateTimeField(verbose_name='Дата и время проведения вебинара')
+    number_of_lesson = models.IntegerField(verbose_name='Номер вебинара', null=False)
+    name_of_teacher = models.ManyToManyField(Teacher)
+    time = models.DateTimeField(verbose_name='Дата и время проведения вебинара')
